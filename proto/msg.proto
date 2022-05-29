@@ -1,0 +1,31 @@
+syntax = "proto3"; // 指定版本信息，不指定会报错
+
+package pb;  // 后期生成go文件包名
+option go_package ="../pb";
+option csharp_namespace = "cspb";  // 给C#提供的选项
+
+// 玩家移动
+message MoveApi {
+    uint32 playerId = 1;
+    string direct = 2;
+    float v = 3;
+}
+// 广播玩家移动信息
+message BroadCastMove{
+    uint32 playerId = 1;
+    string direct = 2;
+    float v = 3;
+}
+
+// 玩家基础信息
+message PlayerInfo{
+    uint32 playerId = 1;
+    float x = 2;
+    float y = 3;
+    float z = 4;
+    float v = 5;
+}
+
+message SynOtherPlayerInfos{
+    repeated PlayerInfo playerInfos = 1;
+}
